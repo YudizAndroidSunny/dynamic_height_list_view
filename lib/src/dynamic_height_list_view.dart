@@ -68,7 +68,7 @@ class DynamicHeightListView<T> extends StatelessWidget {
               ),
       );
     } else {
-      return Container();
+      return const SizedBox.shrink();
     }
   }
 }

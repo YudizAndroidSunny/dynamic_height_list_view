@@ -1,12 +1,13 @@
 import 'package:dynamic_height_list_view/dynamic_height_view.dart';
 import 'package:flutter/material.dart';
 
-
 class ListViewExample extends StatelessWidget {
   ListViewExample({super.key});
 
-  final List<Color> colors = List.generate(100, (index) => Color((index * 0xFFFFFF ~/ 100) << 0).withOpacity(1.0));
-
+  final List<Color> colors = List.generate(
+    100,
+    (index) => Color((index * 0xFFFFFF ~/ 100) << 0).withOpacity(1.0),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +19,12 @@ class ListViewExample extends StatelessWidget {
         items: List.generate(10, (index) => index),
         itemPadding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
         itemBuilder: (context, item) => Card(
-          child: Container(
+          child: SizedBox(
             height: 40,
             width: 100,
-            color: colors[item],
+            child: ColoredBox(
+              color: colors[item],
+            ),
           ),
         ),
       ),

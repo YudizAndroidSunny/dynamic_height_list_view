@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 class GridViewExample extends StatelessWidget {
   GridViewExample({super.key});
 
-  final List<Color> colors = List.generate(100, (index) => Color((index * 0xFFFFFF ~/ 100) << 0).withOpacity(1.0));
-
+  final List<Color> colors = List.generate(
+    100,
+    (index) => Color((index * 0xFFFFFF ~/ 100) << 0).withOpacity(1.0),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +24,11 @@ class GridViewExample extends StatelessWidget {
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
           builder: (context, index) {
-            return Container(
+            return SizedBox(
               height: 200,
-              color: colors[index],
+              child: ColoredBox(
+                color: colors[index],
+              ),
             );
           },
         ),
